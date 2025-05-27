@@ -14,7 +14,7 @@ Thank you for your submission! Please fill in the sections below to ensure your 
 
 By submitting to this program, I confirm that:
 
-- [ ] I am over 18 years old or the age of majority in my jurisdiction of residence, or I am a business entity
+- [x] I am over 18 years old or the age of majority in my jurisdiction of residence, or I am a business entity
 - [ ] I am not a resident of, citizen of, or located in:
   - [ ] United States
   - [ ] Any geographic area subject to UN sanctions
@@ -28,34 +28,52 @@ By submitting to this program, I confirm that:
 ## 1. Project Information
 
 - **Project Title:**
-  _(Enter your project title)_
+  _(TriviaParti)_
 - **Project Tier:**
   - [ ] Beginner (Easy) – Reward up to $2,000
-  - [ ] Intermediate (Medium) – Reward $2,000–$4,000
+  - [x] Intermediate (Medium) – Reward $2,000–$4,000
   - [ ] Advanced (Hard) – Reward $4,000+
         _(Select the tier that best fits your project)_
 - **Reward:**
-  _(State the bounty reward as indicated in the bounty announcement)_
+  _($3000)_
 - **Estimated Timeline:**
-  _(e.g., 2 weeks, 4 weeks, etc.)_
+  _(2 weeks of active development across 6-week period)_
 - **GitHub Repository Link:**
-  _(Provide the link to your project's repository)_
+  _(https://github.com/nerds-cooking/partisia-trivia)_
 - **Contact Info:**
-  _(Your Discord handle and/or email address)_
+  _(josh.robson@nerds.cooking)_
 - **Team Members:**
-  _(List all team members and their roles)_
+  _(Jamie Bell - CTO)_
+  _(Simon Gatenby - Tech Architect)_
+  _(Josh Robson - Product Owner)_
 
 ---
 
 ## 2. Project Brief
 
-Provide a concise summary of your project. Include:
+Objective:
+To build a fair, multiplayer trivia game where users submit answers privately. The goal is to prevent cheating and ensure a level playing field by keeping all submissions confidential until scoring.
 
-- **Objective:** What problem are you solving?
-- **Key Features:** List major functionalities.
-- **Use of Partisia MPC:** Briefly describe how MPC is integrated.
-- **Target Users:** Who will use this project?
-- **Unique Value Proposition:** What makes your solution stand out?
+Key Features:
+
+- Private answer submission via MPC
+- Public leaderboard without revealing answers
+- Multi-game and multiplayer support
+- Custom usernames mapped to wallet addresses
+- Admin flow for inputting questions and answers
+- All logic handled via a single smart contract
+
+Use of Partisia MPC:
+
+Player answers and the correct answer are secret-shared and evaluated via Partisia’s MPC layer. Scores are computed privately, and only the final result (correct/incorrect) is output on-chain.
+
+Target Users:
+
+DAOs, crypto-native communities, Web3 education platforms, and developers exploring privacy-preserving game mechanics.
+
+Unique Value Proposition:
+
+A true zero-leakage trivia engine powered by Partisia — no answer exposure, fully on-chain, and integrated Parti Wallet. We’ve shipped a full-stack MVP, not just isolated smart contract snippets.
 
 ---
 
@@ -63,22 +81,22 @@ Provide a concise summary of your project. Include:
 
 ### 3.1 Detailed Overview
 
-_(Provide a detailed explanation of your architecture, including any flow diagrams or system architecture charts.)_
+_The application consists of a frontend interface (React + Vite) for player interaction, backed by a NestJS server handling API calls and user session logic. Trivia questions and answers are processed via smart contracts written in Rust, deployed on Partisia. All answer submissions are kept private using MPC. The contract commits a hash of the correct answer, and after the round, Partisia MPC nodes securely evaluate responses to calculate scores without revealing individual answers. The results are then aggregated and displayed on a public leaderboard. Role-based permissions are enforced for game organizers, and off-chain signature-based auth is used for secure API access._
 
 ### 3.2 Technical Approach
 
-- **MPC Integration:** Describe your MPC implementation (e.g., secret sharing, random beacon, threshold signatures).
-- **Core Functionality:** Outline the key functionalities (e.g., voting mechanism, random assignment in NFT drop, lottery entry process).
-- **Testing & Verification:** Explain how you are testing the system (include any test results or screenshots).
-- **Security Considerations:** Describe how you're ensuring the security and privacy of the system.
-- **Performance Metrics:** Outline any performance benchmarks or optimizations.
+- **MPC Integration:** Secret score aggregation, privacy-enabled submissions
+- **Core Functionality:** Private answer submission, MPC-based scoring, public leaderboard, question input, multiplayer support
+- **Testing & Verification:** unit tests
+- **Security Considerations:** Role based access control, Off-chain signature based authentication layer to dapp API
+- **Performance Metrics:** none
 
 ### 3.3 Development Stack
 
-- **Frontend:** _(List technologies used)_
-- **Backend:** _(List technologies used)_
-- **Smart Contracts:** _(List languages and frameworks used)_
-- **Other Tools:** _(List any other significant tools or services used)_
+- **Frontend:** _(React + Vite)
+- **Backend:** _(NestJS)_
+- **Smart Contracts:** _(Rust + Partisia)_
+- **Other Tools:** _(Coffee)_
 
 ---
 
@@ -86,42 +104,34 @@ _(Provide a detailed explanation of your architecture, including any flow diagra
 
 List all the deliverables included with your submission:
 
-- Source code (with clean commit history)
-- Comprehensive README with setup, usage, and testing instructions
-- Deployment instructions (local/testnet deployment guide)
-- Demo video (for dApp submissions)
-- Link to the deployed project (for dApps submissions)
-- Any additional documentation or resources
-- Test coverage report
-- Security audit report (if applicable)
+- Source code [(with clean commit history)](https://github.com/nerds-cooking/partisia-trivia)
+- Comprehensive READM: https://github.com/nerds-cooking/partisia-trivia/blob/main/readme.md- 
+- Demo: (https://www.loom.com/share/f87f3913fc2e441d84b887efe9a4cd58)
+- Website link: (https://trivia.partisia.nerds.cooking/)
+- Test: (https://github.com/nerds-cooking/partisia-trivia/blob/main/java-run-tests.sh)
 
 ---
 
 ## 5. Project Timeline
 
-- **Start Date:**
-- **Milestone 1:**
-  - Description:
-  - Target Date:
-- **Milestone 2:**
-  - Description:
-  - Target Date:
-- **Final Submission Date:**
-- **Buffer Time:**
-  _(Include any buffer time for unexpected delays)_
+Start Date:
+9 April 2025
+Milestone 1:
+Description: Smart contract design and implementation using Partisia (MPC integration, question/answer handling)
+Target Date: 16 April 2025
+Milestone 2:
+Description: Frontend (React) and backend (NestJS) integration, leaderboard display, wallet username mapping
+Target Date: 19 May 2025
+Final Submission Date:
+27 May 2025
+
+Buffer Time:
+Included ~3–4 weeks of buffer due to delays from unanswered support queries, testnet downtime and parallel work commitments. 
 
 ---
 
 ## 6. Additional Information
-
-Include any additional details that you believe are important:
-
-- Known issues or limitations
-- Future improvements or enhancements planned
-- Any questions or clarifications you need from the review panel
-- Community engagement plan
-- Marketing or adoption strategy
-
+- **(Feedback Deck provided separately) **
 ---
 
 ## 7. Acknowledgment
